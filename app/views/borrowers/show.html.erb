@@ -1,0 +1,47 @@
+<style type="text/css">
+	#binfo {
+		display: inline-block;
+		float: left;
+	}
+	#minfo {
+		display: inline-block;
+		float: left;
+	}
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	td, th {
+		text-align: right;
+		padding: 5px;
+	}
+	a {
+		float: right;
+	}
+</style>
+<a href="/logins/:id" data-method="delete">Log Out</a>
+
+<fieldset id="binfo">
+	<legend>Information</legend>
+	<h3>Borrower: <%= @borrower.first%></h3>
+	<h3>Amount Needed: <%= @borrower.money%></h3>
+	<h3>Amount Raised: <%= @borrower.raised%></h3>
+</fieldset>
+
+<fieldset id="minfo">
+	<legend>People who lent you money</legend>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Email</th> 
+			<th>Amount Lent</th>
+		</tr>
+		<% @trans.each do |t| %>
+		<tr>
+			<td><%= t.lender.first%> <%= t.lender.last%></td>
+			<td><%= t.lender.email%></td> 
+			<td><%= t.amount%></td>
+		</tr>
+		<%end%>
+	</table>
+</fieldset>

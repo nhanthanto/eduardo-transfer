@@ -1,0 +1,20 @@
+<style type="text/css">
+	form {
+		display: inline-block;
+		float: left;
+	}
+</style>
+
+
+<form action="/login" method="post">
+	<fieldset>
+		<legend>Login</legend>
+		<%= token_tag nil %>
+		<label>Email: </label>
+		<input type="text" name="email"><br><br>
+		<label>Password: </label>
+		<input type="password" name="password"><br><br>
+		<a href="/">Click here to Register</a>
+		<input type="submit" value="Login">
+	</fieldset>
+</form>
